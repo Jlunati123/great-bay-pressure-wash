@@ -237,8 +237,7 @@
         <div class="service-card">
           <div class="service-card-img">
             <div class="service-card-img-placeholder">
-              <!-- Replace with: <img src="images/house-washing-oakdale-ny.jpg" alt="House washing service in Oakdale, NY" /> -->
-              <span class="service-card-icon">🏠</span>
+              <span class="service-card-icon" id="cms-home-house-card" data-alt="House washing service in Oakdale, NY">🏠</span>
             </div>
           </div>
           <div class="service-card-body">
@@ -249,8 +248,7 @@
         </div>
         <div class="service-card">
           <div class="service-card-img">
-            <div class="service-card-img-placeholder">
-              <!-- Replace with: <img src="images/roof-washing-long-island-ny.jpg" alt="Roof soft washing Long Island NY" /> -->
+            <div class="service-card-img-placeholder" id="cms-home-roof-card" data-alt="Roof soft washing Long Island NY">
               <span class="service-card-icon">🏡</span>
             </div>
           </div>
@@ -263,8 +261,7 @@
         <div class="service-card">
           <div class="service-card-img">
             <div class="service-card-img-placeholder">
-              <!-- Replace with: <img src="images/driveway-cleaning-sayville-ny.jpg" alt="Driveway pressure washing Sayville NY" /> -->
-              <span class="service-card-icon">🚗</span>
+              <span class="service-card-icon" id="cms-home-driveway-card" data-alt="Driveway pressure washing Sayville NY">🚗</span>
             </div>
           </div>
           <div class="service-card-body">
@@ -276,8 +273,7 @@
         <div class="service-card">
           <div class="service-card-img">
             <div class="service-card-img-placeholder">
-              <!-- Replace with: <img src="images/patio-cleaning-bohemia-ny.jpg" alt="Patio pressure cleaning Bohemia NY" /> -->
-              <span class="service-card-icon">🌿</span>
+              <span class="service-card-icon" id="cms-home-patio-card" data-alt="Patio pressure cleaning Bohemia NY">🌿</span>
             </div>
           </div>
           <div class="service-card-body">
@@ -289,8 +285,7 @@
         <div class="service-card">
           <div class="service-card-img">
             <div class="service-card-img-placeholder">
-              <!-- Replace with: <img src="images/paver-cleaning-sealing-long-island.jpg" alt="Paver cleaning and sealing Long Island" /> -->
-              <span class="service-card-icon">🧱</span>
+              <span class="service-card-icon" id="cms-home-pavers-card" data-alt="Paver cleaning and sealing Long Island">🧱</span>
             </div>
           </div>
           <div class="service-card-body">
@@ -302,8 +297,7 @@
         <div class="service-card">
           <div class="service-card-img">
             <div class="service-card-img-placeholder">
-              <!-- Replace with: <img src="images/commercial-pressure-washing-long-island.jpg" alt="Commercial pressure washing Long Island" /> -->
-              <span class="service-card-icon">🏢</span>
+              <span class="service-card-icon" id="cms-home-commercial-card" data-alt="Commercial pressure washing Long Island">🏢</span>
             </div>
           </div>
           <div class="service-card-body">
@@ -619,6 +613,26 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    loadCMSImages('data/images-roof-washing.json', {
+      'before_after': 'cms-home-roof-card'
+    });
+    loadCMSImages('data/images-house-washing.json', {
+      'before_after': 'cms-home-house-card'
+    });
+    loadCMSImages('data/images-driveway.json', {
+      'before_after': 'cms-home-driveway-card'
+    });
+    loadCMSImages('data/images-patio.json', {
+      'before_after': 'cms-home-patio-card'
+    });
+    loadCMSImages('data/images-pavers.json', {
+      'before_after': 'cms-home-pavers-card'
+    });
+    loadCMSImages('data/images-commercial.json', {
+      'main': 'cms-home-commercial-card'
+    });
+  </script>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     if (window.netlifyIdentity) {
