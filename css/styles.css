@@ -414,7 +414,7 @@ p:last-child { margin-bottom: 0; }
   position: relative;
   overflow: hidden;
 }
-.service-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.service-card-img img, .service-card-img-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; border: none; }
 .service-card-img-placeholder {
   width: 100%;
   height: 100%;
@@ -472,7 +472,7 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   justify-content: center;
 }
-.col-img img { width: 100%; height: 100%; object-fit: cover; }
+.col-img img, .img-placeholder img { width: 100%; height: 100%; object-fit: cover; display: block; border: none; }
 .img-placeholder {
   width: 100%;
   height: 100%;

@@ -11,12 +11,15 @@ function loadCMSImages(dataFile, imageMap) {
         if (data[key]) {
           var el = document.getElementById(imageMap[key]);
           if (el) {
-            el.innerHTML = '<img src="' + data[key] + '" alt="' + el.getAttribute('data-alt') + '" style="width:100%;height:100%;object-fit:cover;" />';
+            var alt = el.getAttribute('data-alt') || '';
+            // Clear placeholder styling so image fills cleanly
+            el.style.cssText = 'width:100%;height:100%;display:block;padding:0;background:none;border:none;';
+            el.innerHTML = '<img src="' + data[key] + '" alt="' + alt + '" style="width:100%;height:100%;object-fit:cover;display:block;border:none;" />';
           }
         }
       });
     })
-    .catch(function() {}); // silently fail if no data file yet
+    .catch(function() {});
 }
 
 document.addEventListener('DOMContentLoaded', function () {
