@@ -1,0 +1,129 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "photos"
+    label: "Site Photos"
+    files:
+      - name: "homepage"
+        label: "Homepage Photos"
+        file: "data/images.json"
+        fields:
+          - label: "Hero Background"
+            name: "hero"
+            widget: "image"
+            required: false
+            hint: "Main banner image on the homepage"
+          - label: "House Washing — Service Card"
+            name: "house_washing_card"
+            widget: "image"
+            required: false
+            hint: "Small card image on homepage services section"
+          - label: "Roof Washing — Service Card"
+            name: "roof_washing_card"
+            widget: "image"
+            required: false
+          - label: "Driveway Cleaning — Service Card"
+            name: "driveway_card"
+            widget: "image"
+            required: false
+          - label: "Patio Cleaning — Service Card"
+            name: "patio_card"
+            widget: "image"
+            required: false
+          - label: "Paver Cleaning & Sealing — Service Card"
+            name: "paver_card"
+            widget: "image"
+            required: false
+          - label: "Commercial Pressure Washing — Service Card"
+            name: "commercial_card"
+            widget: "image"
+            required: false
+          - label: "About / Team Photo"
+            name: "team_photo"
+            widget: "image"
+            required: false
+            hint: "Photo of you or your team for the About page"
+
+      - name: "house_washing"
+        label: "House Washing Page Photos"
+        file: "data/images-house-washing.json"
+        fields:
+          - label: "Before & After Photo"
+            name: "before_after"
+            widget: "image"
+            required: false
+            hint: "Main before/after image on the house washing page"
+          - label: "Additional Photo"
+            name: "extra"
+            widget: "image"
+            required: false
+
+      - name: "roof_washing"
+        label: "Roof Washing Page Photos"
+        file: "data/images-roof-washing.json"
+        fields:
+          - label: "Before & After Photo"
+            name: "before_after"
+            widget: "image"
+            required: false
+          - label: "Additional Photo"
+            name: "extra"
+            widget: "image"
+            required: false
+
+      - name: "driveway"
+        label: "Driveway Cleaning Page Photos"
+        file: "data/images-driveway.json"
+        fields:
+          - label: "Before & After Photo"
+            name: "before_after"
+            widget: "image"
+            required: false
+          - label: "Additional Photo"
+            name: "extra"
+            widget: "image"
+            required: false
+
+      - name: "patio"
+        label: "Patio Cleaning Page Photos"
+        file: "data/images-patio.json"
+        fields:
+          - label: "Before & After Photo"
+            name: "before_after"
+            widget: "image"
+            required: false
+          - label: "Additional Photo"
+            name: "extra"
+            widget: "image"
+            required: false
+
+      - name: "pavers"
+        label: "Paver Cleaning & Sealing Page Photos"
+        file: "data/images-pavers.json"
+        fields:
+          - label: "Before & After Photo"
+            name: "before_after"
+            widget: "image"
+            required: false
+          - label: "Additional Photo"
+            name: "extra"
+            widget: "image"
+            required: false
+
+      - name: "commercial"
+        label: "Commercial Page Photos"
+        file: "data/images-commercial.json"
+        fields:
+          - label: "Main Photo"
+            name: "main"
+            widget: "image"
+            required: false
+          - label: "Additional Photo"
+            name: "extra"
+            widget: "image"
+            required: false
