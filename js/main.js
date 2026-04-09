@@ -13,8 +13,8 @@ function loadCMSImages(dataFile, imageMap) {
           if (el) {
             var alt = el.getAttribute('data-alt') || '';
             // Clear placeholder styling so image fills cleanly
-            el.style.cssText = 'width:100%;height:100%;display:block;padding:0;background:#000;border:none;overflow:hidden;';
-            el.innerHTML = '<img src="' + data[key] + '" alt="' + alt + '" style="width:100%;height:100%;object-fit:contain;display:block;border:none;" />';
+            el.style.cssText = 'width:100%;height:100%;display:block;padding:0;background:none;border:none;overflow:hidden;';
+            el.innerHTML = '<img src="' + data[key] + '" alt="' + alt + '" style="width:100%;height:100%;object-fit:cover;display:block;border:none;" />';
           }
         }
       });
