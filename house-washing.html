@@ -126,8 +126,7 @@
           <p>At <strong>Great Bay Pressure Wash</strong>, we specialize in professional house washing that doesn't just clean the surface — it kills the biological growth at the root so your home stays cleaner, longer. Our soft wash house washing system is safe on all exterior surfaces and leaves your home looking like it was freshly painted.</p>
 
           <div class="col-img" style="margin:2rem 0;max-width:700px;">
-            <div class="img-placeholder">
-              <!-- Replace with: <img src="images/house-washing-long-island-before-after.jpg" alt="House washing before and after Long Island NY" /> -->
+            <div class="img-placeholder" id="cms-house-before-after" data-alt="House washing before and after Long Island NY">
               <span class="emoji">🏠✨</span>
               <span>Before & After — House Washing in Long Island, NY<br><small>Image: house-washing-long-island-ny.jpg</small></span>
             </div>
@@ -294,5 +293,10 @@
     <a href="contact.html" class="btn btn-accent" style="font-size:0.9rem">Free Quote</a>
   </div>
   <script src="js/main.js"></script>
+  <script>
+    loadCMSImages('data/images-house-washing.json', {
+      'before_after': 'cms-house-before-after'
+    });
+  </script>
 </body>
 </html>

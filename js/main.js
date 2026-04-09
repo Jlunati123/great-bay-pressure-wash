@@ -2,6 +2,23 @@
    GREAT BAY PRESSURE WASH — Main JavaScript
    ============================================================ */
 
+/* --- Load CMS Images from data files --- */
+function loadCMSImages(dataFile, imageMap) {
+  fetch('/' + dataFile)
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      Object.keys(imageMap).forEach(function(key) {
+        if (data[key]) {
+          var el = document.getElementById(imageMap[key]);
+          if (el) {
+            el.innerHTML = '<img src="' + data[key] + '" alt="' + el.getAttribute('data-alt') + '" style="width:100%;height:100%;object-fit:cover;" />';
+          }
+        }
+      });
+    })
+    .catch(function() {}); // silently fail if no data file yet
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
   /* --- Sticky Header --- */
