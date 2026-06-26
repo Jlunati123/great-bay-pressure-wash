@@ -1,0 +1,13 @@
+# Great Bay Pressure Wash — Netlify deploy config
+# Static site; all HTML/CSS/JS served straight from the repo root.
+
+[build]
+  publish = "."
+  # No build step — this is a plain static site.
+  command = ""
+
+# Decap CMS admin panel lives at /admin (admin/index.html)
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
