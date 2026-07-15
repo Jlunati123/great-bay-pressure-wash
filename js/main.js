@@ -111,6 +111,12 @@ document.addEventListener('DOMContentLoaded', function () {
       })
         .then(function (r) {
           if (!r.ok) throw new Error('HTTP ' + r.status);
+
+          // Only fires once Netlify has ACCEPTED the lead, so a Lead in
+          // Meta always corresponds to a real quote request in the inbox.
+          try { if (window.fbq) window.fbq('track', 'Lead'); } catch (err) {}
+          try { if (window.gtag) window.gtag('event', 'generate_lead'); } catch (err) {}
+
           contactForm.innerHTML = '<div style="text-align:center;padding:2rem"><div style="font-size:3rem">✅</div><h3 style="margin:1rem 0 0.5rem">Message Received!</h3><p>We\'ll get back to you within a few hours. For faster service, call <a href="tel:6319212732" style="color:var(--primary);font-weight:700">(631) 921-2732</a>.</p></div>';
         })
         .catch(function () {
