@@ -2,6 +2,20 @@
    GREAT BAY PRESSURE WASH — Main JavaScript
    ============================================================ */
 
+/* --- Route site images through Netlify's Image CDN ---
+   Source photos are multi-MB PNGs; served raw they made the homepage
+   ~11 MB. The CDN resizes and converts to WebP on the fly (~25x
+   smaller) so oversized uploads can't tank the site again.
+   Only touches /images/* — external URLs are left alone. */
+function cdnImage(src, width) {
+  if (!src || typeof src !== 'string') return src;
+  if (src.indexOf('/.netlify/images') !== -1) return src;      // already routed
+  if (!/^\/?images\//.test(src)) return src;                    // not ours
+  var path = src.charAt(0) === '/' ? src : '/' + src;
+  return '/.netlify/images?url=' + encodeURIComponent(path) +
+         '&w=' + (width || 800) + '&fm=webp&q=78';
+}
+
 /* --- Load CMS Images from data files --- */
 function loadCMSImages(dataFile, imageMap) {
   fetch('/' + dataFile)
@@ -16,9 +30,11 @@ function loadCMSImages(dataFile, imageMap) {
             // whole image, right for logos/graphics that must not be cropped.
             var fit = el.getAttribute('data-fit') || 'cover';
             var bg = fit === 'contain' ? '#F4F9FF' : 'none';
+            var width = parseInt(el.getAttribute('data-width'), 10) || 800;
+            var src = cdnImage(data[key], width);
             // Clear placeholder styling so image fills cleanly
             el.style.cssText = 'width:100%;height:100%;display:block;padding:0;background:' + bg + ';border:none;overflow:hidden;';
-            el.innerHTML = '<img src="' + data[key] + '" alt="' + alt + '" style="width:100%;height:100%;object-fit:' + fit + ';display:block;border:none;" />';
+            el.innerHTML = '<img src="' + src + '" alt="' + alt + '" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:' + fit + ';display:block;border:none;" />';
           }
         }
       });
