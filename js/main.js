@@ -84,18 +84,40 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  /* --- Contact Form submission (static placeholder) --- */
+  /* --- Contact Form submission (Netlify Forms) ---
+     Posts to Netlify and only shows success once Netlify has actually
+     accepted the lead. On failure the visitor is told to call rather
+     than being shown a false confirmation. */
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
       const btn = contactForm.querySelector('button[type="submit"]');
+      const originalLabel = btn.textContent;
       btn.textContent = 'Sending…';
       btn.disabled = true;
-      // Replace with your form backend (Netlify Forms, Formspree, etc.)
-      setTimeout(function () {
-        contactForm.innerHTML = '<div style="text-align:center;padding:2rem"><div style="font-size:3rem">✅</div><h3 style="margin:1rem 0 0.5rem">Message Received!</h3><p>We\'ll get back to you within a few hours. For faster service, call <a href="tel:6319212732" style="color:var(--primary);font-weight:700">(631) 921-2732</a>.</p></div>';
-      }, 1200);
+
+      const existingError = contactForm.querySelector('.form-error');
+      if (existingError) existingError.remove();
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(contactForm)).toString()
+      })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          contactForm.innerHTML = '<div style="text-align:center;padding:2rem"><div style="font-size:3rem">✅</div><h3 style="margin:1rem 0 0.5rem">Message Received!</h3><p>We\'ll get back to you within a few hours. For faster service, call <a href="tel:6319212732" style="color:var(--primary);font-weight:700">(631) 921-2732</a>.</p></div>';
+        })
+        .catch(function () {
+          btn.textContent = originalLabel;
+          btn.disabled = false;
+          const err = document.createElement('div');
+          err.className = 'form-error';
+          err.style.cssText = 'background:#FDECEA;border:1px solid #E74C3C;color:#A93226;padding:1rem;border-radius:8px;margin-bottom:1rem;font-weight:600;';
+          err.innerHTML = 'Sorry — your request didn\'t go through. Please call us at <a href="tel:6319212732" style="color:#A93226;text-decoration:underline">(631) 921-2732</a> or email <a href="mailto:greatbaypressurewash@gmail.com" style="color:#A93226;text-decoration:underline">greatbaypressurewash@gmail.com</a> and we\'ll take care of you right away.';
+          contactForm.insertBefore(err, contactForm.firstChild);
+        });
     });
   }
 

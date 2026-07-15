@@ -25,8 +25,7 @@
 
   <section class="section"><div class="container">
     <div class="two-col" style="margin-bottom:4rem;">
-      <div class="col-img"><div class="img-placeholder">
-        <!-- Replace: <img src="images/great-bay-team-oakdale-ny.jpg" alt="Great Bay Pressure Wash owner and team in Oakdale, NY" /> -->
+      <div class="col-img"><div class="img-placeholder" id="cms-about-team" data-alt="Great Bay Pressure Wash owner and team in Oakdale, NY">
         <span class="emoji">👋</span><span>Great Bay Pressure Wash<br>Based in Oakdale, NY</span>
       </div></div>
       <div class="col-text">
@@ -85,5 +84,10 @@
   <footer><div class="container"><div class="footer-grid"><div class="footer-brand"><div class="logo-text"><span class="name">Great Bay Pressure Wash</span><span class="tagline">Long Island's Exterior Cleaning Experts</span></div><p>Professionally cleaning homes and businesses across Long Island, NY.</p><div class="footer-contact-item">📞 <a href="tel:6319212732">(631) 921-2732</a></div><div class="footer-contact-item">✉️ <a href="mailto:greatbaypressurewash@gmail.com">greatbaypressurewash@gmail.com</a></div></div><div><h4>Services</h4><nav class="footer-links"><a href="house-washing.html">House Washing</a><a href="roof-washing.html">Roof Washing</a><a href="driveway-cleaning.html">Driveway Cleaning</a><a href="patio-cleaning.html">Patio Cleaning</a><a href="paver-cleaning-sealing.html">Paver Cleaning & Sealing</a><a href="commercial-pressure-washing.html">Commercial Services</a></nav></div><div><h4>Service Areas</h4><nav class="footer-links"><a href="service-areas.html#oakdale">Oakdale, NY</a><a href="service-areas.html#sayville">Sayville, NY</a><a href="service-areas.html#bohemia">Bohemia, NY</a><a href="service-areas.html">View All Areas</a></nav></div><div><h4>Company</h4><nav class="footer-links"><a href="about.html">About Us</a><a href="blog/">Blog</a><a href="contact.html">Contact</a></nav></div></div><div class="footer-bottom"><span>© 2026 Great Bay Pressure Wash. Oakdale, NY.</span><span><a href="privacy-policy.html">Privacy Policy</a></span></div></div></footer>
   <div class="mobile-cta-bar"><a href="tel:6319212732" class="btn btn-call" style="font-size:0.9rem">📞 Call Now</a><a href="contact.html" class="btn btn-accent" style="font-size:0.9rem">Free Quote</a></div>
   <script src="js/main.js"></script>
+  <script>
+    loadCMSImages('data/images.json', {
+      'team_photo': 'cms-about-team'
+    });
+  </script>
 </body>
 </html>
