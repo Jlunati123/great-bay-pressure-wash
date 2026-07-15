@@ -316,8 +316,7 @@
     <div class="container">
       <div class="two-col">
         <div class="col-img">
-          <div class="img-placeholder">
-            <!-- Replace with: <img src="images/great-bay-pressure-wash-team-oakdale.jpg" alt="Great Bay Pressure Wash team in Oakdale NY" /> -->
+          <div class="img-placeholder" id="cms-home-why-choose" data-alt="Great Bay Pressure Wash team in Oakdale, Long Island NY">
             <span class="emoji">💧</span>
             <span>Great Bay Pressure Wash Team<br>Oakdale, Long Island, NY</span>
           </div>
@@ -615,6 +614,9 @@
 
   <script src="js/main.js"></script>
   <script>
+    loadCMSImages('data/images.json', {
+      'why_choose_photo': 'cms-home-why-choose'
+    });
     loadCMSImages('data/images-roof-washing.json', {
       'before_after': 'cms-home-roof-card'
     });

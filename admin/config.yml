@@ -5,6 +5,10 @@ backend:
 media_folder: "images"
 public_folder: "/images"
 
+# NOTE: only add a field here once something on the site actually reads it.
+# A field with no slot behind it saves happily and changes nothing, which
+# is worse than no field at all.
+
 collections:
   - name: "settings"
     label: "Site Settings"
@@ -43,120 +47,76 @@ collections:
     label: "Site Photos"
     files:
       - name: "homepage"
-        label: "Homepage Photos"
+        label: "Homepage & About Photos"
         file: "data/images.json"
         fields:
-          - label: "Hero Background"
-            name: "hero"
+          - label: "Homepage — \"Why Choose Us\" Photo"
+            name: "why_choose_photo"
             widget: "image"
             required: false
-            hint: "Main banner image on the homepage"
-          - label: "House Washing — Service Card"
-            name: "house_washing_card"
-            widget: "image"
-            required: false
-            hint: "Small card image on homepage services section"
-          - label: "Roof Washing — Service Card"
-            name: "roof_washing_card"
-            widget: "image"
-            required: false
-          - label: "Driveway Cleaning — Service Card"
-            name: "driveway_card"
-            widget: "image"
-            required: false
-          - label: "Patio Cleaning — Service Card"
-            name: "patio_card"
-            widget: "image"
-            required: false
-          - label: "Paver Cleaning & Sealing — Service Card"
-            name: "paver_card"
-            widget: "image"
-            required: false
-          - label: "Commercial Pressure Washing — Service Card"
-            name: "commercial_card"
-            widget: "image"
-            required: false
-          - label: "About / Team Photo"
+            hint: "The large photo beside the \"Why Choose Us\" text on the homepage. A team, truck, or job-site photo works best here."
+          - label: "About Page — Team Photo"
             name: "team_photo"
             widget: "image"
             required: false
-            hint: "Photo of you or your team for the About page"
+            hint: "The large photo beside \"Long Island Born. Long Island Proud.\" on the About page."
 
       - name: "house_washing"
-        label: "House Washing Page Photos"
+        label: "House Washing Page Photo"
         file: "data/images-house-washing.json"
         fields:
           - label: "Before & After Photo"
             name: "before_after"
             widget: "image"
             required: false
-            hint: "Main before/after image on the house washing page"
-          - label: "Additional Photo"
-            name: "extra"
-            widget: "image"
-            required: false
+            hint: "Shows on the House Washing page AND as the House Washing card on the homepage."
 
       - name: "roof_washing"
-        label: "Roof Washing Page Photos"
+        label: "Roof Washing Page Photo"
         file: "data/images-roof-washing.json"
         fields:
           - label: "Before & After Photo"
             name: "before_after"
             widget: "image"
             required: false
-          - label: "Additional Photo"
-            name: "extra"
-            widget: "image"
-            required: false
+            hint: "Shows on the Roof Washing page AND as the Roof Washing card on the homepage."
 
       - name: "driveway"
-        label: "Driveway Cleaning Page Photos"
+        label: "Driveway Cleaning Page Photo"
         file: "data/images-driveway.json"
         fields:
           - label: "Before & After Photo"
             name: "before_after"
             widget: "image"
             required: false
-          - label: "Additional Photo"
-            name: "extra"
-            widget: "image"
-            required: false
+            hint: "Shows on the Driveway Cleaning page AND as the Driveway card on the homepage."
 
       - name: "patio"
-        label: "Patio Cleaning Page Photos"
+        label: "Patio Cleaning Page Photo"
         file: "data/images-patio.json"
         fields:
           - label: "Before & After Photo"
             name: "before_after"
             widget: "image"
             required: false
-          - label: "Additional Photo"
-            name: "extra"
-            widget: "image"
-            required: false
+            hint: "Shows on the Patio Cleaning page AND as the Patio card on the homepage."
 
       - name: "pavers"
-        label: "Paver Cleaning & Sealing Page Photos"
+        label: "Paver Cleaning & Sealing Page Photo"
         file: "data/images-pavers.json"
         fields:
           - label: "Before & After Photo"
             name: "before_after"
             widget: "image"
             required: false
-          - label: "Additional Photo"
-            name: "extra"
-            widget: "image"
-            required: false
+            hint: "Shows on the Paver Cleaning page AND as the Paver card on the homepage."
 
       - name: "commercial"
-        label: "Commercial Page Photos"
+        label: "Commercial Page Photo"
         file: "data/images-commercial.json"
         fields:
           - label: "Main Photo"
             name: "main"
             widget: "image"
             required: false
-          - label: "Additional Photo"
-            name: "extra"
-            widget: "image"
-            required: false
+            hint: "Shows on the Commercial page AND as the Commercial card on the homepage."
