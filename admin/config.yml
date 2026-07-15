@@ -6,6 +6,39 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "tracking"
+        label: "Tracking & Pixels"
+        file: "data/tracking.json"
+        fields:
+          - label: "Meta (Facebook) Pixel ID"
+            name: "meta_pixel_id"
+            widget: "string"
+            required: false
+            hint: "Numeric ID from Meta Events Manager, e.g. 1234567890123456. Paste the ID only — not the whole script. Leave blank to turn the pixel off."
+          - label: "Google Analytics 4 — Measurement ID"
+            name: "ga4_id"
+            widget: "string"
+            required: false
+            hint: "Looks like G-XXXXXXXXXX. Leave blank to turn GA4 off."
+          - label: "Google Ads — Conversion ID"
+            name: "google_ads_id"
+            widget: "string"
+            required: false
+            hint: "Looks like AW-XXXXXXXXX. Leave blank to turn Google Ads tracking off."
+          - label: "Advanced — extra code for <head>"
+            name: "head_code"
+            widget: "text"
+            required: false
+            hint: "Only needed for tags with no field above. Raw HTML/JS, added to the <head> of EVERY page. Anything pasted here runs on the whole site — only paste code you trust."
+          - label: "Advanced — extra code for <body>"
+            name: "body_code"
+            widget: "text"
+            required: false
+            hint: "Raw HTML added at the start of every page's <body>. Usually only needed for <noscript> fallback tags."
+
   - name: "photos"
     label: "Site Photos"
     files:
