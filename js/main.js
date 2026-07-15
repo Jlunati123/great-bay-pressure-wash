@@ -12,9 +12,13 @@ function loadCMSImages(dataFile, imageMap) {
           var el = document.getElementById(imageMap[key]);
           if (el) {
             var alt = el.getAttribute('data-alt') || '';
+            // cover = crop to fill, right for photos. contain = show the
+            // whole image, right for logos/graphics that must not be cropped.
+            var fit = el.getAttribute('data-fit') || 'cover';
+            var bg = fit === 'contain' ? '#F4F9FF' : 'none';
             // Clear placeholder styling so image fills cleanly
-            el.style.cssText = 'width:100%;height:100%;display:block;padding:0;background:none;border:none;overflow:hidden;';
-            el.innerHTML = '<img src="' + data[key] + '" alt="' + alt + '" style="width:100%;height:100%;object-fit:cover;display:block;border:none;" />';
+            el.style.cssText = 'width:100%;height:100%;display:block;padding:0;background:' + bg + ';border:none;overflow:hidden;';
+            el.innerHTML = '<img src="' + data[key] + '" alt="' + alt + '" style="width:100%;height:100%;object-fit:' + fit + ';display:block;border:none;" />';
           }
         }
       });
